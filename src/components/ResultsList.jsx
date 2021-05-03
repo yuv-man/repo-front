@@ -1,20 +1,17 @@
-import React, { useContext, useState } from 'react'
+import React from 'react'
 import { RepoContext } from '../libs/Context'
 import  ListItem  from './ListItem'
 
-const ResultsList = () => {
+const ResultsList = (props) => {
 
-    const { repos } = useContext(RepoContext)
-
-    const showInfo = (e) =>{
-        console.log(e.target.id)
-    }
+    // const { repos } = useContext(RepoContext)
+    const {repos} = props
 
     return (
         <div>
             {repos ? (<ul>
                 {repos.map(repo => { 
-                    return (<li key={repo.id}><ListItem {...repo}/> 
+                    return (<li key={repo.id}><ListItem {...repo} favorite={props.favorite}/> 
                     </li>)
                 })} 
             </ul>) : null}

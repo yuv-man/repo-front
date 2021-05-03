@@ -1,10 +1,11 @@
 import React, {useContext, useState} from 'react'
 import {searchOrg} from '../libs/api'
 import { RepoContext } from '../libs/Context'
+import ResultsList from './ResultsList'
 
 const Search = () => {
 
-    const { setRepos } = useContext(RepoContext)
+    const { repos, setRepos } = useContext(RepoContext)
     const [ searchValue, setSearchValue ] = useState('')
 
     const submitQuery = async(e) => {
@@ -12,7 +13,6 @@ const Search = () => {
         const res = await searchOrg(searchValue)
         if (typeof res === 'object'){
             setRepos(res)
-            console.log(res)
         }   
     }
 
@@ -21,15 +21,18 @@ const Search = () => {
     }
 
     return (
-        <form onSubmit={submitQuery}>
-            <input
-            value={searchValue}
-            onChange={handleChange}
-            type='text'
-            name='search'
-            placeholder='Search GitHub Companies' 
-            />
-        </form>
+        <div>
+            <form onSubmit={submitQuery}>
+                <input
+                value={searchValue}
+                onChange={handleChange}
+                type='text'
+                name='search'
+                placeholder='Search GitHub Companies' 
+                />
+            </form>
+            <ResultsList repos={repos}/>
+        </div>
     )
 }
 
