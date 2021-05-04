@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import '../styles/resultList.css'
 import { RepoContext } from '../libs/Context'
 import  ListItem  from './ListItem'
 

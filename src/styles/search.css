@@ -1,0 +1,32 @@
+.container{
+    margin-left: 50px;
+}
+
+.search{
+    width: 400px;
+    height: 50px;
+    border: 2px solid #2372D8;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    padding-left: 10px;
+}
+
+.searchButton{
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    height: 56px;
+    width: 100px;
+    background-color: #2372D8;
+    color: white;
+    font-weight: bold;
+    margin-right: 20px;
+    border: none;
+}
+
+.filter{
+    height: 54px;
+    width: 120px;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding-left: 5px; 
+}

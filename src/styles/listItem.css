@@ -1,0 +1,39 @@
+
+.listItem{
+    background-color: #EDEEF2;
+    width: 500;
+    display: inline-flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.itemTitle{
+    display: flex;
+    flex-direction: row;
+    height: 30px;
+    align-items: center;
+}
+
+.repoName{
+    width: 250px;
+    color: #2372D8;
+}
+
+.titleBtn{
+    background-color: #fff;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+
+.info{
+    display: flex;
+    margin-top: 10px;
+}
+
+.infoText{
+    margin-right: 20px;
+    align-items: center;
+    justify-content: center;
+}

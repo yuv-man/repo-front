@@ -17,11 +17,11 @@ function App() {
   return (
     <Router>
       <RepoContext.Provider value={{favoriteRepos, setFavoriteRepos}}>.
-        <nav>
-          <div>
+        <nav className='navBar'>
+          <div className='navText'>
             <Link to="/search">Search</Link>
           </div>
-          <div>
+          <div className='navText'>
             <Link to="/profile">Profile</Link>
           </div>
         </nav>
