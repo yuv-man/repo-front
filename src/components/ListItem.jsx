@@ -1,8 +1,10 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import {addRepo, removeRepo, updateComment} from '../libs/api'
+import { RepoContext } from '../libs/Context'
 
 const ListItem = (props) => {
 
+    const { favoriteRepos, setFavoriteRepos } = useContext(RepoContext)
     const {id, owner, language, created_at, html_url, comment} = props
     const [moreInfo, setMoreInfo] = useState(false)
     const [repoContent, setRepoContent] = useState({repoId: id, comment: ''})
@@ -16,8 +18,14 @@ const ListItem = (props) => {
         addRepo(repoContent)
     }
 
-    const removeFromProfile = () => {
+    const removeFromProfile = (e) => {
         removeRepo(id)
+        let newFavoriteList = favoriteRepos
+        const index = newFavoriteList.indexOf(x=>x.repoId===id);
+        if (index > -1) {
+            newFavoriteList.splice(index, 1);
+        }
+        setFavoriteRepos(newFavoriteList)
     }
 
     const handleChange = (e) => {
@@ -26,6 +34,7 @@ const ListItem = (props) => {
 
     const addComment = () => {
         updateComment(id, repoContent.comment)
+        setCommentBox(false)
     }
 
     return (
@@ -52,7 +61,7 @@ const ListItem = (props) => {
                         />
                         <button onClick={addComment}>add comment</button>
                     </div>}
-                {comment?<p>{comment}</p>:null}
+                {!commentBox && <p>{repoContent.comment || comment }</p>}
 
         </div>
     )

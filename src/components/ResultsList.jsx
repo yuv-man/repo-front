@@ -1,10 +1,9 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { RepoContext } from '../libs/Context'
 import  ListItem  from './ListItem'
 
 const ResultsList = (props) => {
 
-    // const { repos } = useContext(RepoContext)
     const {repos} = props
 
     return (

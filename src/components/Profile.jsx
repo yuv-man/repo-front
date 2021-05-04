@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useContext } from 'react'
 import { getSavedRepos, getRepoById } from '../libs/api'
+import { RepoContext } from '../libs/Context'
 import ResultsList from './ResultsList'
 
 const Profile = () => {
 
-    const [ savedRepos, setSavedRepos ] = useState([])
-
+    const { favoriteRepos, setFavoriteRepos } = useContext(RepoContext)
+    
     useEffect(async() => {
         let repos = []
         const res = await getSavedRepos()
@@ -14,13 +15,13 @@ const Profile = () => {
             repoInfo['comment'] = item.comment
             repos.push(repoInfo)
         }
-        setSavedRepos(repos)
-    }, [])
+        setFavoriteRepos(repos)
+    }, [favoriteRepos])
 
     return (
         <div>
             <span>profile page</span>
-            <ResultsList repos={savedRepos} favorite={true}/>
+            <ResultsList repos={favoriteRepos} favorite={true} />
         </div>
     )
 }

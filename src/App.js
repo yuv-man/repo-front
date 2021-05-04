@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import './App.css';
 import Search from './components/Search'
 import Profile from './components/Profile'
-import ResultsList from './components/ResultsList';
 import {
   BrowserRouter as Router,
   Switch,
@@ -13,11 +12,11 @@ import { RepoContext } from './libs/Context'
 
 function App() {
 
-  const [repos, setRepos] = useState([]);
+  const [favoriteRepos, setFavoriteRepos] = useState([]);
 
   return (
     <Router>
-      <RepoContext.Provider value={{repos, setRepos}}>.
+      <RepoContext.Provider value={{favoriteRepos, setFavoriteRepos}}>.
         <nav>
           <div>
             <Link to="/search">Search</Link>

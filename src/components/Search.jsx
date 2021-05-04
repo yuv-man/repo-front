@@ -5,7 +5,8 @@ import ResultsList from './ResultsList'
 
 const Search = () => {
 
-    const { repos, setRepos } = useContext(RepoContext)
+    // const { repos, setRepos } = useContext(RepoContext)
+    const [ repos, setRepos ]  = useState([])
     const [ searchValue, setSearchValue ] = useState('')
 
     const submitQuery = async(e) => {
