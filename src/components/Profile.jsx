@@ -21,7 +21,7 @@ const Profile = () => {
 
     return (
         <div className='container'>
-            <h1>profile page</h1>
+            <h1>Profile page</h1>
             <ResultsList repos={favoriteRepos} favorite={true} />
         </div>
     )
