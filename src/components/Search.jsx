@@ -12,7 +12,6 @@ const Search = () => {
     const [sortValue, setSortValue ] = useState('')
 
     const changeFilter = (e) =>{
-        setSortValue(e.target.value)
         sortBy(e.target.value)
     }
 
@@ -31,6 +30,7 @@ const Search = () => {
                         ? 1 : -1 )
         }
         setRepos(sortedRepos)
+        setSortValue(sortValue)
     }
 
     const submitQuery = async(e) => {

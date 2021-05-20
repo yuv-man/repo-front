@@ -6,7 +6,7 @@ import ResultsList from './ResultsList'
 
 const Profile = () => {
 
-    const { favoriteRepos, setFavoriteRepos } = useContext(RepoContext)
+    const { favoriteRepos, setFavoriteRepos, onDelete } = useContext(RepoContext)
     
     useEffect(async() => {
         let repos = []
@@ -17,7 +17,7 @@ const Profile = () => {
             repos.push(repoInfo)
         }
         setFavoriteRepos(repos)
-    }, [favoriteRepos])
+    }, [onDelete])
 
     return (
         <div className='container'>

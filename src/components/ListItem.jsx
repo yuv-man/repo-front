@@ -11,7 +11,7 @@ import {RiCodeBoxLine} from 'react-icons/ri'
 
 const ListItem = (props) => {
 
-    const { favoriteRepos, setFavoriteRepos } = useContext(RepoContext)
+    const { favoriteRepos, setFavoriteRepos, onDelete, setOnDelete } = useContext(RepoContext)
     const {id, owner, language, created_at, html_url, stargazers_count, comment} = props
     const [moreInfo, setMoreInfo] = useState(false)
     const [repoContent, setRepoContent] = useState({repoId: id, comment: ''})
@@ -33,6 +33,7 @@ const ListItem = (props) => {
             newFavoriteList.splice(index, 1);
         }
         setFavoriteRepos(newFavoriteList)
+        setOnDelete(onDelete + 1)
     }
 
     const handleChange = (e) => {

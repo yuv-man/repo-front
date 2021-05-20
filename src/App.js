@@ -13,10 +13,11 @@ import { RepoContext } from './libs/Context'
 function App() {
 
   const [favoriteRepos, setFavoriteRepos] = useState([]);
+  const [onDelete, setOnDelete] = useState(0)
 
   return (
     <Router>
-      <RepoContext.Provider value={{favoriteRepos, setFavoriteRepos}}>.
+      <RepoContext.Provider value={{favoriteRepos, setFavoriteRepos, onDelete, setOnDelete}}>.
         <nav className='navBar'>
           <div className='navText'>
             <Link to="/search">Search</Link>
